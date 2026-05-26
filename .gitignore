@@ -1,0 +1,5 @@
+_*.py
+__pycache__/
+*.pyc
+.claude/
+.vscode/
