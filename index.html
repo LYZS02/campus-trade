@@ -8,7 +8,7 @@
 :root {
   --g50:#f0fdf4; --g100:#dcfce7; --g200:#bbf7d0; --g300:#86efac;
   --g400:#4ade80; --g500:#22c55e; --g600:#16a34a; --g700:#15803d; --g800:#166534;
-  --red:#ef4444; --orange:#f59e0b; --gray:#6b7280; --light:#f9fafb;
+  --red:#ef4444; --orange:#f59e0b; --gray:#6b7280;
   --radius:14px; --shadow:0 2px 12px rgba(0,0,0,.06);
   --nav-h:56px; --top-h:52px;
 }
@@ -20,8 +20,6 @@ body{
   position:relative; padding-bottom:var(--nav-h);
   -webkit-tap-highlight-color:transparent;
 }
-
-/* top bar */
 .topbar{
   position:sticky; top:0; z-index:100; background:#fff;
   padding:8px 14px; display:flex; align-items:center; gap:10px;
@@ -29,221 +27,124 @@ body{
 }
 .topbar .logo{ font-weight:700; font-size:17px; color:var(--g700); white-space:nowrap; }
 .topbar .logo span{ color:var(--g500); }
-.topbar input{
-  flex:1; border:none; background:var(--g50); border-radius:20px;
-  padding:8px 14px; font-size:14px; outline:none; min-width:0;
-}
+.topbar input{ flex:1; border:none; background:var(--g50); border-radius:20px; padding:8px 14px; font-size:14px; outline:none; min-width:0; }
 .topbar input:focus{ background:var(--g100); }
-.topbar .icon-btn{
-  border:none; background:none; font-size:20px; cursor:pointer;
-  padding:4px; position:relative; line-height:1;
-}
-.topbar .badge{
-  position:absolute; top:-2px; right:-4px;
-  background:var(--red); color:#fff; font-size:10px;
-  min-width:16px; height:16px; border-radius:8px;
-  display:flex; align-items:center; justify-content:center;
-  font-weight:600;
-}
-
-/* category scroll */
+.topbar .icon-btn{ border:none; background:none; font-size:20px; cursor:pointer; padding:4px; position:relative; line-height:1; }
+.topbar .badge{ position:absolute; top:-2px; right:-4px; background:var(--red); color:#fff; font-size:10px; min-width:16px; height:16px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:600; }
 .cat-bar{
   position:sticky; top:var(--top-h); z-index:99; background:#fff;
   padding:8px 14px; display:flex; gap:8px; overflow-x:auto;
   border-bottom:1px solid #f3f4f6; scrollbar-width:none;
 }
 .cat-bar::-webkit-scrollbar{ display:none; }
-.cat-tag{
-  border:none; background:var(--g50); color:var(--g700);
-  padding:6px 14px; border-radius:16px; font-size:13px;
-  white-space:nowrap; cursor:pointer; transition:.2s;
-  flex-shrink:0;
-}
+.cat-tag{ border:none; background:var(--g50); color:var(--g700); padding:6px 14px; border-radius:16px; font-size:13px; white-space:nowrap; cursor:pointer; transition:.2s; flex-shrink:0; }
 .cat-tag.active{ background:var(--g500); color:#fff; }
-
-/* item cards */
 .item-list{ padding:10px 14px; }
-.item-card{
-  background:#fff; border-radius:var(--radius); padding:14px;
-  margin-bottom:12px; display:flex; gap:12px;
-  box-shadow:var(--shadow); cursor:pointer; transition:.2s;
-}
+.item-card{ background:#fff; border-radius:var(--radius); padding:14px; margin-bottom:12px; display:flex; gap:12px; box-shadow:var(--shadow); cursor:pointer; transition:.2s; }
 .item-card:active{ transform:scale(.98); }
-.item-img{
-  width:90px; height:90px; border-radius:10px;
-  background:var(--g100); flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  font-size:40px; overflow:hidden;
-}
+.item-img{ width:90px; height:90px; border-radius:10px; background:var(--g100); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:40px; overflow:hidden; }
 .item-img img{ width:100%; height:100%; object-fit:cover; }
 .item-info{ flex:1; display:flex; flex-direction:column; gap:4px; min-width:0; }
 .item-info .title{ font-weight:600; font-size:15px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .item-info .desc{ font-size:12px; color:var(--gray); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .item-info .tags{ display:flex; gap:4px; flex-wrap:wrap; }
-.item-info .tags span{
-  font-size:10px; background:var(--g50); color:var(--g600);
-  padding:1px 8px; border-radius:8px;
-}
+.item-info .tags span{ font-size:10px; background:var(--g50); color:var(--g600); padding:1px 8px; border-radius:8px; }
 .item-info .bottom{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; }
 .item-info .price{ font-size:18px; font-weight:700; color:var(--red); }
 .item-info .price small{ font-size:12px; font-weight:400; color:var(--gray); text-decoration:line-through; margin-left:4px; }
 .item-info .seller{ font-size:11px; color:var(--gray); }
-
-/* detail modal */
-.modal-overlay{
-  display:none; position:fixed; inset:0; z-index:200;
-  background:rgba(0,0,0,.4); flex-direction:column; justify-content:flex-end;
-}
+.modal-overlay{ display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,.4); flex-direction:column; justify-content:flex-end; }
 .modal-overlay.on{ display:flex; }
-.modal-sheet{
-  background:#fff; border-radius:20px 20px 0 0; max-height:85vh;
-  overflow-y:auto; padding:20px 18px 30px; animation:slideUp .3s ease;
-}
+.modal-sheet{ background:#fff; border-radius:20px 20px 0 0; max-height:85vh; overflow-y:auto; padding:20px 18px 30px; animation:slideUp .3s ease; }
 @keyframes slideUp{ from{transform:translateY(100%);} to{transform:translateY(0);} }
-.modal-sheet .close-row{ display:flex; justify-content:flex-end; margin-bottom:8px; }
-.modal-sheet .close-row button{
-  border:none; background:var(--g50); width:32px; height:32px;
-  border-radius:50%; font-size:18px; cursor:pointer;
-}
-.modal-sheet .detail-img{
-  width:100%; height:200px; border-radius:12px;
-  background:var(--g100); display:flex; align-items:center;
-  justify-content:center; font-size:80px; margin-bottom:14px; overflow:hidden;
-}
-.modal-sheet .detail-img img{ width:100%; height:100%; object-fit:cover; }
 .modal-sheet h2{ font-size:19px; color:#1f2937; margin-bottom:6px; }
 .modal-sheet .detail-price{ font-size:24px; font-weight:700; color:var(--red); margin-bottom:8px; }
 .modal-sheet .detail-meta{ font-size:13px; color:var(--gray); margin-bottom:10px; }
 .modal-sheet .detail-desc{ font-size:14px; color:#555; line-height:1.8; margin-bottom:16px; }
+.modal-sheet .detail-img{ width:100%; height:200px; border-radius:12px; background:var(--g100); display:flex; align-items:center; justify-content:center; font-size:80px; margin-bottom:14px; overflow:hidden; }
+.modal-sheet .detail-img img{ width:100%; height:100%; object-fit:cover; }
+.modal-sheet .close-row{ display:flex; justify-content:flex-end; margin-bottom:8px; }
+.modal-sheet .close-row button{ border:none; background:var(--g50); width:32px; height:32px; border-radius:50%; font-size:18px; cursor:pointer; }
 .modal-sheet .btn-row{ display:flex; gap:10px; }
-.modal-sheet .btn-row button{
-  flex:1; border:none; padding:12px; border-radius:10px;
-  font-size:15px; font-weight:600; cursor:pointer; transition:.2s;
-}
+.modal-sheet .btn-row button{ flex:1; border:none; padding:12px; border-radius:10px; font-size:15px; font-weight:600; cursor:pointer; transition:.2s; }
 .btn-primary{ background:var(--g500); color:#fff; }
 .btn-primary:hover{ background:var(--g600); }
 .btn-outline{ background:#fff; color:var(--g600); border:2px solid var(--g500)!important; }
 .btn-danger{ background:var(--red); color:#fff; }
-
-/* tabs at top for sell/cart/user */
-.sub-nav{
-  display:flex; gap:6px; padding:8px 14px; background:#fff;
-  border-bottom:1px solid #f3f4f6;
-}
-.sub-nav button{
-  flex:1; border:none; background:var(--g50); color:var(--g700);
-  padding:8px; border-radius:10px; font-size:14px; cursor:pointer; transition:.2s;
-}
-.sub-nav button.active{ background:var(--g500); color:#fff; }
-
-/* bottom nav */
-.bottom-nav{
-  position:fixed; bottom:0; left:0; right:0; max-width:480px; margin:0 auto;
-  background:#fff; border-top:1px solid #eee;
-  display:flex; height:var(--nav-h); z-index:150;
-}
-.bottom-nav button{
-  flex:1; border:none; background:none;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:2px; cursor:pointer; color:var(--gray); font-size:10px; transition:.2s;
-}
+.bottom-nav{ position:fixed; bottom:0; left:0; right:0; max-width:480px; margin:0 auto; background:#fff; border-top:1px solid #eee; display:flex; height:var(--nav-h); z-index:150; }
+.bottom-nav button{ flex:1; border:none; background:none; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; cursor:pointer; color:var(--gray); font-size:10px; transition:.2s; }
 .bottom-nav button .nav-icon{ font-size:22px; }
 .bottom-nav button.active{ color:var(--g600); font-weight:600; }
-
-/* form */
 .form-section{ padding:14px; }
 .form-group{ margin-bottom:14px; }
 .form-group label{ display:block; font-size:13px; font-weight:600; color:#555; margin-bottom:4px; }
-.form-group input, .form-group textarea, .form-group select{
-  width:100%; border:1px solid #e5e7eb; border-radius:10px;
-  padding:10px 14px; font-size:14px; outline:none; font-family:inherit;
-  transition:.2s; background:#fff;
-}
-.form-group input:focus, .form-group textarea:focus{ border-color:var(--g400); box-shadow:0 0 0 3px rgba(34,197,94,.1); }
+.form-group input,.form-group textarea,.form-group select{ width:100%; border:1px solid #e5e7eb; border-radius:10px; padding:10px 14px; font-size:14px; outline:none; font-family:inherit; transition:.2s; background:#fff; }
+.form-group input:focus,.form-group textarea:focus{ border-color:var(--g400); box-shadow:0 0 0 3px rgba(34,197,94,.1); }
 .form-group textarea{ resize:vertical; min-height:80px; }
-.form-group .img-upload{
-  width:100%; height:120px; border:2px dashed #d1d5db; border-radius:12px;
-  display:flex; align-items:center; justify-content:center; cursor:pointer;
-  font-size:40px; color:#bbb; transition:.2s; background:#fafafa;
-}
+.form-group .img-upload{ width:100%; height:120px; border:2px dashed #d1d5db; border-radius:12px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:40px; color:#bbb; transition:.2s; background:#fafafa; }
 .form-group .img-upload:hover{ border-color:var(--g400); color:var(--g400); }
 .form-group .img-upload input{ display:none; }
 .form-group .img-preview{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
-.form-group .img-preview .thumb{
-  width:60px; height:60px; border-radius:8px; background-size:cover;
-  background-position:center; position:relative;
-}
-.form-group .img-preview .thumb .del{
-  position:absolute; top:-6px; right:-6px; width:18px; height:18px;
-  background:var(--red); color:#fff; border-radius:50%; font-size:10px;
-  border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
-}
-.btn-full{
-  width:100%; border:none; background:var(--g500); color:#fff;
-  padding:12px; border-radius:10px; font-size:16px; font-weight:600;
-  cursor:pointer; transition:.2s;
-}
+.form-group .img-preview .thumb{ width:60px; height:60px; border-radius:8px; background-size:cover; background-position:center; position:relative; }
+.form-group .img-preview .thumb .del{ position:absolute; top:-6px; right:-6px; width:18px; height:18px; background:var(--red); color:#fff; border-radius:50%; font-size:10px; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.btn-full{ width:100%; border:none; background:var(--g500); color:#fff; padding:12px; border-radius:10px; font-size:16px; font-weight:600; cursor:pointer; transition:.2s; }
 .btn-full:hover{ background:var(--g600); }
 .btn-full:disabled{ background:#ccc; cursor:not-allowed; }
-
-/* cart */
-.cart-item{
-  background:#fff; border-radius:var(--radius); padding:14px;
-  margin-bottom:8px; display:flex; gap:10px; align-items:center;
-  box-shadow:var(--shadow);
-}
-.cart-item .c-img{
-  width:60px; height:60px; border-radius:8px;
-  background:var(--g100); flex-shrink:0;
-  display:flex; align-items:center; justify-content:center; font-size:28px;
-}
+.cart-item{ background:#fff; border-radius:var(--radius); padding:14px; margin-bottom:8px; display:flex; gap:10px; align-items:center; box-shadow:var(--shadow); }
+.cart-item .c-img{ width:60px; height:60px; border-radius:8px; background:var(--g100); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:28px; }
 .cart-item .c-info{ flex:1; min-width:0; }
 .cart-item .c-info .c-title{ font-weight:600; font-size:14px; }
 .cart-item .c-info .c-price{ color:var(--red); font-weight:600; font-size:15px; }
 .cart-item .qty-ctrl{ display:flex; align-items:center; gap:6px; }
-.cart-item .qty-ctrl button{
-  width:28px; height:28px; border-radius:50%; border:1px solid #d1d5db;
-  background:#fff; font-size:16px; cursor:pointer; display:flex;
-  align-items:center; justify-content:center;
-}
+.cart-item .qty-ctrl button{ width:28px; height:28px; border-radius:50%; border:1px solid #d1d5db; background:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
 .cart-item .qty-ctrl span{ width:24px; text-align:center; font-weight:600; }
-.cart-footer{
-  position:sticky; bottom:var(--nav-h); background:#fff;
-  border-top:1px solid #eee; padding:12px 14px;
-  display:flex; align-items:center; justify-content:space-between;
-}
+.cart-footer{ position:sticky; bottom:var(--nav-h); background:#fff; border-top:1px solid #eee; padding:12px 14px; display:flex; align-items:center; justify-content:space-between; }
 .cart-footer .total{ font-size:16px; }
 .cart-footer .total strong{ color:var(--red); font-size:20px; }
-
-/* orders */
-.order-card{
-  background:#fff; border-radius:var(--radius); padding:14px; margin-bottom:10px;
-  box-shadow:var(--shadow);
-}
+.order-card{ background:#fff; border-radius:var(--radius); padding:14px; margin-bottom:10px; box-shadow:var(--shadow); }
 .order-card .o-header{ display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px; }
 .order-card .o-items{ font-size:14px; color:#555; margin-bottom:6px; }
 .order-card .o-total{ font-weight:600; color:var(--red); }
-.order-card .o-status{
-  display:inline-block; padding:2px 10px; border-radius:10px;
-  font-size:11px; font-weight:600;
-}
+.o-status{ display:inline-block; padding:2px 10px; border-radius:10px; font-size:11px; font-weight:600; }
 .status-pending{ background:#fef3c7; color:#92400e; }
 .status-paid{ background:#dbeafe; color:#1e40af; }
 .status-shipped{ background:#e0e7ff; color:#3730a3; }
 .status-done{ background:var(--g100); color:var(--g700); }
-
-/* empty state */
 .empty{ text-align:center; padding:50px 20px; color:#bbb; }
 .empty .empty-icon{ font-size:56px; margin-bottom:8px; }
 .empty p{ font-size:14px; }
-
-/* toast */
-.toast{
-  position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:999;
-  background:#1f2937; color:#fff; padding:10px 24px; border-radius:20px;
-  font-size:14px; pointer-events:none; opacity:0; transition:opacity .3s;
-}
+.toast{ position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:999; background:#1f2937; color:#fff; padding:10px 24px; border-radius:20px; font-size:14px; pointer-events:none; opacity:0; transition:opacity .3s; }
 .toast.show{ opacity:1; }
+
+/* login screen */
+.login-screen{
+  position:fixed; inset:0; z-index:500; background:linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #e9f5eb 100%);
+  display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;
+}
+.login-screen.hidden{ display:none; }
+.login-card{
+  background:#fff; border-radius:20px; padding:32px 24px; max-width:380px; width:100%;
+  box-shadow:0 8px 40px rgba(0,0,0,.1); text-align:center;
+}
+.login-card .login-icon{ font-size:56px; margin-bottom:8px; }
+.login-card h2{ font-size:22px; color:var(--g800); margin-bottom:4px; }
+.login-card .login-sub{ font-size:13px; color:var(--gray); margin-bottom:20px; }
+.login-card input{ width:100%; border:1px solid #e5e7eb; border-radius:10px; padding:12px 14px; font-size:14px; outline:none; margin-bottom:10px; transition:.2s; }
+.login-card input:focus{ border-color:var(--g400); box-shadow:0 0 0 3px rgba(34,197,94,.1); }
+.login-card .login-btn{ width:100%; border:none; background:var(--g500); color:#fff; padding:12px; border-radius:10px; font-size:16px; font-weight:600; cursor:pointer; transition:.2s; margin-top:6px; }
+.login-card .login-btn:hover{ background:var(--g600); }
+.login-card .switch-link{ font-size:13px; color:var(--g600); margin-top:12px; cursor:pointer; }
+.login-card .switch-link:hover{ text-decoration:underline; }
+.login-card .mode-indicator{ font-size:11px; margin-top:10px; padding:4px 12px; border-radius:10px; display:inline-block; }
+.login-card .mode-indicator.api{ background:#dcfce7; color:#166534; }
+.login-card .mode-indicator.local{ background:#fef3c7; color:#92400e; }
+
+.api-badge{
+  display:inline-block; font-size:10px; padding:2px 8px; border-radius:8px;
+  vertical-align:middle; margin-left:4px;
+}
+.api-badge.on{ background:var(--g200); color:var(--g700); }
+.api-badge.off{ background:#fef3c7; color:#92400e; }
 
 @media(max-width:380px){
   .item-img{ width:72px; height:72px; font-size:32px; }
@@ -253,17 +154,34 @@ body{
 </head>
 <body>
 
+<!-- login screen -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-icon">🔄</div>
+    <h2 id="loginTitle">欢迎使用校园二手交易</h2>
+    <div class="login-sub" id="loginSub">登录你的账号</div>
+    <input type="text" id="loginUser" placeholder="用户名">
+    <input type="text" id="loginName" placeholder="昵称（注册时需要）" style="display:none;">
+    <input type="text" id="loginPhone" placeholder="手机号（注册时需要）" style="display:none;">
+    <input type="password" id="loginPass" placeholder="密码">
+    <button class="login-btn" id="loginBtn" onclick="doLogin()">登 录</button>
+    <div class="switch-link" id="switchLink" onclick="toggleMode()">没有账号？去注册</div>
+    <div> <span class="mode-indicator local" id="modeTag">离线模式</span> </div>
+  </div>
+</div>
+
 <!-- toast -->
 <div class="toast" id="toast"></div>
 
 <!-- top bar -->
 <div class="topbar" id="topbar">
-  <div class="logo">🔄 校园<span>二手</span></div>
+  <div class="logo">🔄 校园<span>二手</span><span class="api-badge off" id="apiBadge">离线</span></div>
   <input type="text" placeholder="搜索商品..." id="searchInput" oninput="renderItems()">
   <button class="icon-btn" onclick="switchTab('cart')">🛒<span class="badge" id="cartBadge" style="display:none">0</span></button>
+  <button class="icon-btn" onclick="doLogout()" style="font-size:16px;" title="退出登录">🚪</button>
 </div>
 
-<!-- category bar (only on home) -->
+<!-- cat bar -->
 <div class="cat-bar" id="catBar">
   <button class="cat-tag active" onclick="filterCat('all',this)">全部</button>
   <button class="cat-tag" onclick="filterCat('教材',this)">教材</button>
@@ -274,7 +192,7 @@ body{
   <button class="cat-tag" onclick="filterCat('其他',this)">其他</button>
 </div>
 
-<!-- main content area -->
+<!-- main -->
 <div id="mainContent"></div>
 
 <!-- detail modal -->
@@ -282,7 +200,7 @@ body{
   <div class="modal-sheet" id="detailSheet"></div>
 </div>
 
-<!-- bottom navigation -->
+<!-- bottom nav -->
 <div class="bottom-nav">
   <button class="active" onclick="switchTab('home')"><span class="nav-icon">🏠</span>首页</button>
   <button onclick="switchTab('sell')"><span class="nav-icon">📝</span>发布</button>
@@ -292,45 +210,47 @@ body{
 </div>
 
 <script>
-// ==================== DATA STORE ====================
+// ==================== CONFIG ====================
+var API_BASE = 'http://localhost:8080/api';
+var useApi = false;
+var currentUser = null;
+var isRegister = false;
+
+// ==================== LOCAL STORAGE BACKUP ====================
 var STORAGE_KEY = 'campus_trade_data';
 
-function loadData(){
+function loadLocal(){
   var raw = localStorage.getItem(STORAGE_KEY);
   if (raw) return JSON.parse(raw);
-  // Default seed data
   var seed = {
     users: [
-      { id:'u1', name:'邓建斌', phone:'138****1234', role:'学生' },
-      { id:'u2', name:'刘鹏', phone:'139****5678', role:'学生' },
-      { id:'u3', name:'刘耀坤', phone:'136****9012', role:'学生' }
+      { id:1, username:'dengjb', password:'123456', name:'邓建斌', phone:'138****1234', role:'学生' },
+      { id:2, username:'liupeng', password:'123456', name:'刘鹏', phone:'139****5678', role:'学生' },
+      { id:3, username:'liuyk', password:'123456', name:'刘耀坤', phone:'136****9012', role:'学生' }
     ],
-    currentUser: { id:'u1', name:'邓建斌', phone:'138****1234', role:'学生' },
     items: [
-      { id:'i1', title:'高等数学（第七版）上下册', desc:'九成新，只有少量笔记，考研必备教材', price:25, origPrice:78, cat:'教材', seller:'刘鹏', sellerId:'u2', img:null, time:'2026-05-20', sold:false },
-      { id:'i2', title:'罗技K380蓝牙键盘', desc:'用了半年，换了机械键盘所以出，功能完好，送电池', price:89, origPrice:179, cat:'电子', seller:'刘耀坤', sellerId:'u3', img:null, time:'2026-05-19', sold:false },
-      { id:'i3', title:'宿舍床头收纳挂篮', desc:'黑色铁艺，几乎全新，毕业清仓', price:12, origPrice:35, cat:'生活', seller:'邓建斌', sellerId:'u1', img:null, time:'2026-05-22', sold:false },
-      { id:'i4', title:'iPad Air 4 64G 深空灰', desc:'国行过保，屏幕完美，边框轻微使用痕迹，带原装充电器', price:2100, origPrice:4399, cat:'电子', seller:'刘鹏', sellerId:'u2', img:null, time:'2026-05-18', sold:false },
-      { id:'i5', title:'尤尼克斯羽毛球拍 NR-700', desc:'入门级，线是24磅BG65，适合新手练习', price:150, origPrice:320, cat:'运动', seller:'刘耀坤', sellerId:'u3', img:null, time:'2026-05-21', sold:false },
-      { id:'i6', title:'数据结构（C语言版）严蔚敏', desc:'计算机专业经典教材，保护得不错，笔记工整', price:18, origPrice:45, cat:'教材', seller:'邓建斌', sellerId:'u1', img:null, time:'2026-05-17', sold:false },
-      { id:'i7', title:'小米台灯1S 白色', desc:'LED护眼台灯，支持米家APP控制，无拆无修', price:65, origPrice:149, cat:'生活', seller:'刘鹏', sellerId:'u2', img:null, time:'2026-05-16', sold:false },
-      { id:'i8', title:'NIKE Air Force 1 纯白 42码', desc:'穿了一个月不太合脚，9成新，鞋盒吊牌都在', price:380, origPrice:799, cat:'服饰', seller:'刘耀坤', sellerId:'u3', img:null, time:'2026-05-15', sold:false },
-      { id:'i9', title:'考研英语真题（2021-2025）', desc:'只做了一套，其余全新，赠答题卡和视频课', price:22, origPrice:59, cat:'教材', seller:'邓建斌', sellerId:'u1', img:null, time:'2026-05-23', sold:false },
-      { id:'i10', title:'Switch Pro手柄 国行正品', desc:'使用不超过20小时，无漂移，箱说全', price:199, origPrice:459, cat:'电子', seller:'刘鹏', sellerId:'u2', img:null, time:'2026-05-14', sold:false }
+      { id:1, title:'高等数学（第七版）上下册', description:'九成新，只有少量笔记，考研必备教材', price:25, origPrice:78, category:'教材', sellerId:2, sellerName:'刘鹏', time:'2026-05-20', sold:false },
+      { id:2, title:'罗技K380蓝牙键盘', description:'用了半年，换了机械键盘所以出，功能完好，送电池', price:89, origPrice:179, category:'电子', sellerId:3, sellerName:'刘耀坤', time:'2026-05-19', sold:false },
+      { id:3, title:'宿舍床头收纳挂篮', description:'黑色铁艺，几乎全新，毕业清仓', price:12, origPrice:35, category:'生活', sellerId:1, sellerName:'邓建斌', time:'2026-05-22', sold:false },
+      { id:4, title:'iPad Air 4 64G 深空灰', description:'国行过保，屏幕完美，边框轻微使用痕迹，带原装充电器', price:2100, origPrice:4399, category:'电子', sellerId:2, sellerName:'刘鹏', time:'2026-05-18', sold:false },
+      { id:5, title:'尤尼克斯羽毛球拍 NR-700', description:'入门级，线是24磅BG65，适合新手练习', price:150, origPrice:320, category:'运动', sellerId:3, sellerName:'刘耀坤', time:'2026-05-21', sold:false },
+      { id:6, title:'数据结构（C语言版）严蔚敏', description:'计算机专业经典教材，保护得不错，笔记工整', price:18, origPrice:45, category:'教材', sellerId:1, sellerName:'邓建斌', time:'2026-05-17', sold:false },
+      { id:7, title:'小米台灯1S 白色', description:'LED护眼台灯，支持米家APP控制，无拆无修', price:65, origPrice:149, category:'生活', sellerId:2, sellerName:'刘鹏', time:'2026-05-16', sold:false },
+      { id:8, title:'NIKE Air Force 1 纯白 42码', description:'穿了一个月不太合脚，9成新，鞋盒吊牌都在', price:380, origPrice:799, category:'服饰', sellerId:3, sellerName:'刘耀坤', time:'2026-05-15', sold:false },
+      { id:9, title:'考研英语真题（2021-2025）', description:'只做了一套，其余全新，赠答题卡和视频课', price:22, origPrice:59, category:'教材', sellerId:1, sellerName:'邓建斌', time:'2026-05-23', sold:false },
+      { id:10, title:'Switch Pro手柄 国行正品', description:'使用不超过20小时，无漂移，箱说全', price:199, origPrice:459, category:'电子', sellerId:2, sellerName:'刘鹏', time:'2026-05-14', sold:false }
     ],
     cart: [],
     orders: [],
     nextId: 11
   };
-  saveData(seed);
+  saveLocal(seed);
   return seed;
 }
 
-function saveData(data){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
+function saveLocal(data){ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
 
-var DATA = loadData();
+var DATA = loadLocal();
 
 // ==================== HELPERS ====================
 function toast(msg){
@@ -339,40 +259,144 @@ function toast(msg){
   clearTimeout(t._t); t._t = setTimeout(function(){ t.classList.remove('show'); }, 1800);
 }
 
-function formatTime(t){ return t || ''; }
-
 function catEmoji(cat){
-  var m = { '教材':'📚', '电子':'💻', '生活':'🏠', '运动':'⚽', '服饰':'👗', '其他':'📦' };
+  var m = {'教材':'📚','电子':'💻','生活':'🏠','运动':'⚽','服饰':'👗','其他':'📦'};
   return m[cat] || '📦';
 }
 
 function imgHTML(item){
-  if (item.img) return '<img src="'+item.img+'" alt="">';
-  return catEmoji(item.cat);
+  if (item.image) return '<img src="'+item.image+'" alt="">';
+  return catEmoji(item.category || '其他');
 }
 
 function updateCartBadge(){
   var badge = document.getElementById('cartBadge');
-  var count = DATA.cart.reduce(function(s,i){ return s+i.qty; }, 0);
+  var count;
+  if (useApi) {
+    count = (window._apiCart || []).reduce(function(s,i){ return s+i.qty; }, 0);
+  } else {
+    count = DATA.cart.reduce(function(s,i){ return s+i.qty; }, 0);
+  }
   badge.textContent = count;
   badge.style.display = count > 0 ? 'flex' : 'none';
 }
 
-// ==================== TAB SWITCHING ====================
+// ==================== API DETECTION ====================
+function checkApi(){
+  return fetch(API_BASE + '/items?category=&keyword=', { method:'GET', signal:AbortSignal.timeout(3000) })
+    .then(function(r){ return r.ok; })
+    .catch(function(){ return false; });
+}
+
+// ==================== LOGIN ====================
+function toggleMode(){
+  isRegister = !isRegister;
+  document.getElementById('loginTitle').textContent = isRegister ? '注册新账号' : '欢迎使用校园二手交易';
+  document.getElementById('loginSub').textContent = isRegister ? '填写信息注册' : '登录你的账号';
+  document.getElementById('loginBtn').textContent = isRegister ? '注 册' : '登 录';
+  document.getElementById('switchLink').textContent = isRegister ? '已有账号？去登录' : '没有账号？去注册';
+  document.getElementById('loginName').style.display = isRegister ? 'block' : 'none';
+  document.getElementById('loginPhone').style.display = isRegister ? 'block' : 'none';
+}
+
+function doLogin(){
+  var username = document.getElementById('loginUser').value.trim();
+  var password = document.getElementById('loginPass').value.trim();
+  if (!username || !password) { toast('请填写用户名和密码'); return; }
+
+  if (isRegister) {
+    var name = document.getElementById('loginName').value.trim();
+    var phone = document.getElementById('loginPhone').value.trim();
+    if (!name || !phone) { toast('请填写昵称和手机号'); return; }
+    if (useApi) {
+      fetch(API_BASE + '/users/register', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({username:username, password:password, name:name, phone:phone})
+      }).then(function(r){ return r.json(); }).then(function(data){
+        if (data.error) { toast(data.error); return; }
+        onLoginSuccess(data);
+      }).catch(function(e){ toast('服务器连接失败，切换到离线模式'); useApi=false; doLogin(); });
+    } else {
+      var exist = DATA.users.find(function(u){ return u.username === username; });
+      if (exist) { toast('用户名已存在'); return; }
+      var newUser = { id: DATA.users.length+1, username:username, password:password, name:name, phone:phone, role:'学生' };
+      DATA.users.push(newUser); saveLocal(DATA);
+      onLoginSuccess(newUser);
+    }
+  } else {
+    if (useApi) {
+      fetch(API_BASE + '/users/login', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({username:username, password:password})
+      }).then(function(r){ return r.json(); }).then(function(data){
+        if (data.error) { toast(data.error); return; }
+        onLoginSuccess(data);
+      }).catch(function(e){ toast('服务器连接失败，切换到离线模式'); useApi=false; doLogin(); });
+    } else {
+      var user = DATA.users.find(function(u){ return u.username === username && u.password === password; });
+      if (!user) { toast('用户名或密码错误'); return; }
+      onLoginSuccess(user);
+    }
+  }
+}
+
+function onLoginSuccess(user){
+  currentUser = user;
+  document.getElementById('loginScreen').classList.add('hidden');
+  updateModeBadge();
+  switchTab('home');
+  toast('欢迎回来，' + user.name + '！');
+}
+
+function doLogout(){
+  currentUser = null;
+  document.getElementById('loginScreen').classList.remove('hidden');
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+}
+
+function updateModeBadge(){
+  var badge = document.getElementById('apiBadge');
+  var tag = document.getElementById('modeTag');
+  if (useApi) {
+    badge.textContent = '在线'; badge.className = 'api-badge on';
+    tag.textContent = '在线模式'; tag.className = 'mode-indicator api';
+  } else {
+    badge.textContent = '离线'; badge.className = 'api-badge off';
+    tag.textContent = '离线模式'; tag.className = 'mode-indicator local';
+  }
+}
+
+// ==================== INIT ====================
+function init(){
+  checkApi().then(function(ok){
+    if (ok) {
+      useApi = true;
+      toast('检测到后端服务，已启用在线模式');
+    } else {
+      useApi = false;
+      toast('未检测到后端，使用离线模式');
+    }
+    updateModeBadge();
+  }).catch(function(){
+    useApi = false;
+    updateModeBadge();
+  });
+  updateCartBadge();
+}
+
+// ==================== TAB ====================
 var currentTab = 'home';
 var currentCat = 'all';
 
 function switchTab(tab){
+  if (!currentUser && tab !== 'home') { toast('请先登录'); return; }
   currentTab = tab;
   document.querySelectorAll('.bottom-nav button').forEach(function(b,i){
     var tabs = ['home','sell','cart','orders','me'];
     b.classList.toggle('active', tabs[i] === tab);
   });
-  // show/hide topbar elements
-  var catBar = document.getElementById('catBar');
-  var topbar = document.getElementById('topbar');
-  catBar.style.display = (tab === 'home') ? 'flex' : 'none';
-
+  document.getElementById('catBar').style.display = (tab === 'home') ? 'flex' : 'none';
   if (tab === 'home') renderItems();
   else if (tab === 'sell') renderSell();
   else if (tab === 'cart') renderCart();
@@ -388,57 +412,76 @@ function filterCat(cat, btn){
   renderItems();
 }
 
-// ==================== HOME - ITEM LIST ====================
+// ==================== ITEMS ====================
 function renderItems(){
   var search = (document.getElementById('searchInput').value || '').trim().toLowerCase();
-  var items = DATA.items.filter(function(item){ return !item.sold; });
-  if (currentCat !== 'all') items = items.filter(function(item){ return item.cat === currentCat; });
-  if (search) items = items.filter(function(item){
-    return item.title.toLowerCase().indexOf(search) >= 0 || item.desc.toLowerCase().indexOf(search) >= 0;
-  });
-  // sort by time desc
-  items.sort(function(a,b){ return b.time.localeCompare(a.time); });
-
-  var html = '<div class="item-list">';
-  if (items.length === 0) {
-    html += '<div class="empty"><div class="empty-icon">📭</div><p>暂无相关商品</p></div>';
+  var fetchItems;
+  if (useApi) {
+    var params = '?category=' + (currentCat==='all'?'':currentCat) + '&keyword=' + encodeURIComponent(search);
+    fetchItems = fetch(API_BASE + '/items' + params).then(function(r){ return r.json(); });
+  } else {
+    fetchItems = new Promise(function(resolve){
+      var items = DATA.items.filter(function(i){ return !i.sold; });
+      if (currentCat !== 'all') items = items.filter(function(i){ return i.category === currentCat; });
+      if (search) items = items.filter(function(i){
+        return i.title.toLowerCase().indexOf(search) >= 0 || (i.description||'').toLowerCase().indexOf(search) >= 0;
+      });
+      items.sort(function(a,b){ return (b.time||'').localeCompare(a.time||''); });
+      resolve(items);
+    });
   }
-  items.forEach(function(item){
-    html += '<div class="item-card" onclick="openDetail(\''+item.id+'\')">'+
-      '<div class="item-img">'+imgHTML(item)+'</div>'+
-      '<div class="item-info">'+
-        '<div class="title">'+item.title+'</div>'+
-        '<div class="desc">'+item.desc+'</div>'+
-        '<div class="tags"><span>'+catEmoji(item.cat)+' '+item.cat+'</span></div>'+
-        '<div class="bottom">'+
-          '<div class="price">¥'+item.price+'<small>¥'+item.origPrice+'</small></div>'+
-          '<div class="seller">'+item.seller+' · '+item.time+'</div>'+
+  fetchItems.then(function(items){
+    var html = '<div class="item-list">';
+    if (items.length === 0) html += '<div class="empty"><div class="empty-icon">📭</div><p>暂无相关商品</p></div>';
+    items.forEach(function(item){
+      var id = item.id || item._id;
+      html += '<div class="item-card" onclick="openDetail(\''+id+'\')">'+
+        '<div class="item-img">'+imgHTML(item)+'</div>'+
+        '<div class="item-info">'+
+          '<div class="title">'+item.title+'</div>'+
+          '<div class="desc">'+(item.description||'')+'</div>'+
+          '<div class="tags"><span>'+catEmoji(item.category)+' '+item.category+'</span></div>'+
+          '<div class="bottom">'+
+            '<div class="price">¥'+item.price+'<small>¥'+(item.origPrice||item.price)+'</small></div>'+
+            '<div class="seller">'+(item.sellerName||'')+' · '+(item.time||item.createdDate||'')+'</div>'+
+          '</div>'+
         '</div>'+
-      '</div>'+
-    '</div>';
+      '</div>';
+    });
+    html += '</div>';
+    document.getElementById('mainContent').innerHTML = html;
   });
-  html += '</div>';
-  document.getElementById('mainContent').innerHTML = html;
 }
 
-// ==================== DETAIL MODAL ====================
-function openDetail(itemId){
-  var item = DATA.items.find(function(i){ return i.id === itemId; });
-  if (!item || item.sold) return;
-  var sheet = document.getElementById('detailSheet');
-  sheet.innerHTML =
-    '<div class="close-row"><button onclick="closeDetail()">✕</button></div>'+
-    '<div class="detail-img">'+imgHTML(item)+'</div>'+
-    '<h2>'+item.title+'</h2>'+
-    '<div class="detail-price">¥'+item.price+' <small style="font-size:14px;color:#aaa;text-decoration:line-through;">¥'+item.origPrice+'</small></div>'+
-    '<div class="detail-meta">📂 '+item.cat+' · 👤 '+item.seller+' · 🕐 '+item.time+'</div>'+
-    '<div class="detail-desc">'+item.desc+'</div>'+
-    '<div class="btn-row">'+
-      '<button class="btn-outline" onclick="addToCart(\''+item.id+'\');closeDetail()">加入购物车</button>'+
-      '<button class="btn-primary" onclick="buyNow(\''+item.id+'\')">立即购买</button>'+
-    '</div>';
-  document.getElementById('detailModal').classList.add('on');
-  document.body.style.overflow = 'hidden';
+// ==================== DETAIL ====================
+var _detailItem = null;
+function openDetail(id){
+  var getItem;
+  if (useApi) {
+    getItem = fetch(API_BASE + '/items/' + id).then(function(r){ return r.json(); });
+  } else {
+    getItem = new Promise(function(resolve){
+      resolve(DATA.items.find(function(i){ return String(i.id) === String(id); }));
+    });
+  }
+  getItem.then(function(item){
+    if (!item || item.sold) return;
+    _detailItem = item;
+    var sheet = document.getElementById('detailSheet');
+    sheet.innerHTML =
+      '<div class="close-row"><button onclick="closeDetail()">✕</button></div>'+
+      '<div class="detail-img">'+imgHTML(item)+'</div>'+
+      '<h2>'+item.title+'</h2>'+
+      '<div class="detail-price">¥'+item.price+' <small style="font-size:14px;color:#aaa;text-decoration:line-through;">¥'+(item.origPrice||item.price)+'</small></div>'+
+      '<div class="detail-meta">📂 '+item.category+' · 👤 '+(item.sellerName||'')+' · 🕐 '+(item.time||item.createdDate||'')+'</div>'+
+      '<div class="detail-desc">'+(item.description||'')+'</div>'+
+      '<div class="btn-row">'+
+        '<button class="btn-outline" onclick="addToCart();closeDetail()">加入购物车</button>'+
+        '<button class="btn-primary" onclick="buyNow()">立即购买</button>'+
+      '</div>';
+    document.getElementById('detailModal').classList.add('on');
+    document.body.style.overflow = 'hidden';
+  });
 }
 
 function closeDetail(){
@@ -446,22 +489,32 @@ function closeDetail(){
   document.body.style.overflow = '';
 }
 
-function addToCart(itemId){
-  var existing = DATA.cart.find(function(c){ return c.itemId === itemId; });
-  if (existing) { existing.qty += 1; }
-  else { DATA.cart.push({ itemId: itemId, qty: 1 }); }
-  saveData(DATA);
+function addToCart(){
+  if (!_detailItem) return;
+  if (useApi) {
+    if (!window._apiCart) window._apiCart = [];
+    var exist = window._apiCart.find(function(c){ return c.id === _detailItem.id; });
+    if (exist) exist.qty++;
+    else window._apiCart.push({ id:_detailItem.id, title:_detailItem.title, price:_detailItem.price, qty:1 });
+  } else {
+    var cid = String(_detailItem.id);
+    var ex = DATA.cart.find(function(c){ return String(c.itemId) === cid; });
+    if (ex) ex.qty++;
+    else DATA.cart.push({ itemId: cid, qty:1 });
+    saveLocal(DATA);
+  }
   updateCartBadge();
   toast('已加入购物车 ✓');
 }
 
-function buyNow(itemId){
-  addToCart(itemId);
+function buyNow(){
+  addToCart();
   closeDetail();
   switchTab('cart');
 }
 
 // ==================== SELL ====================
+window._sellImgData = null;
 function renderSell(){
   var html = '<div class="form-section">'+
     '<div style="text-align:center;margin-bottom:16px;font-weight:600;font-size:16px;color:var(--g700);">发布二手商品</div>'+
@@ -477,7 +530,6 @@ function renderSell(){
     '<button class="btn-full" onclick="submitItem()">发布商品</button>'+
   '</div>';
   document.getElementById('mainContent').innerHTML = html;
-  window._sellImgData = null;
 }
 
 function previewImg(e){
@@ -487,8 +539,7 @@ function previewImg(e){
   reader.onload = function(ev){
     window._sellImgData = ev.target.result;
     document.getElementById('imgPreview').innerHTML =
-      '<div class="thumb" style="background-image:url('+ev.target.result+');">'+
-      '<button class="del" onclick="window._sellImgData=null;document.getElementById(\'imgPreview\').innerHTML=\'\';">✕</button></div>';
+      '<div class="thumb" style="background-image:url('+ev.target.result+');"><button class="del" onclick="window._sellImgData=null;document.getElementById(\'imgPreview\').innerHTML=\'\';">✕</button></div>';
   };
   reader.readAsDataURL(file);
 }
@@ -502,212 +553,266 @@ function submitItem(){
   if (!title) { toast('请输入商品名称'); return; }
   if (!cat) { toast('请选择分类'); return; }
   if (!price || price <= 0) { toast('请输入有效售价'); return; }
-  var now = new Date();
-  var timeStr = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
-  var newItem = {
-    id: 'i'+DATA.nextId,
-    title: title,
-    desc: desc || '卖家很懒，没有写描述~',
-    price: price,
-    origPrice: orig || price,
-    cat: cat,
-    seller: DATA.currentUser.name,
-    sellerId: DATA.currentUser.id,
-    img: window._sellImgData || null,
-    time: timeStr,
-    sold: false
-  };
-  DATA.nextId++;
-  DATA.items.unshift(newItem);
-  saveData(DATA);
-  window._sellImgData = null;
-  toast('发布成功！🎉');
-  switchTab('home');
+  if (useApi) {
+    fetch(API_BASE + '/items', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        title:title, description:desc||'卖家很懒，没有写描述~', price:price,
+        origPrice:orig||price, category:cat, sellerId:currentUser.id,
+        sellerName:currentUser.name, image:window._sellImgData||null
+      })
+    }).then(function(r){ return r.json(); }).then(function(){
+      window._sellImgData = null;
+      toast('发布成功！🎉');
+      switchTab('home');
+    }).catch(function(){ toast('发布失败'); });
+  } else {
+    var now = new Date();
+    var ts = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+    DATA.items.unshift({
+      id: DATA.nextId++, title:title, description:desc||'卖家很懒，没有写描述~', price:price,
+      origPrice:orig||price, category:cat, sellerId:currentUser.id, sellerName:currentUser.name,
+      image:window._sellImgData||null, time:ts, sold:false
+    });
+    saveLocal(DATA);
+    window._sellImgData = null;
+    toast('发布成功！🎉');
+    switchTab('home');
+  }
 }
 
 // ==================== CART ====================
 function renderCart(){
-  var cartItems = [];
-  DATA.cart.forEach(function(c){
-    var item = DATA.items.find(function(i){ return i.id === c.itemId; });
-    if (item && !item.sold) cartItems.push({ item:item, qty:c.qty });
-  });
-  var total = cartItems.reduce(function(s,c){ return s + c.item.price * c.qty; }, 0);
-
-  var html = '<div style="padding:14px;"><div style="font-weight:600;font-size:16px;margin-bottom:10px;text-align:center;">🛒 我的购物车</div>';
-  if (cartItems.length === 0) {
-    html += '<div class="empty"><div class="empty-icon">🛒</div><p>购物车是空的，去逛逛吧~</p></div>';
-  } else {
-    cartItems.forEach(function(ci, idx){
-      html += '<div class="cart-item">'+
-        '<div class="c-img">'+imgHTML(ci.item)+'</div>'+
-        '<div class="c-info"><div class="c-title">'+ci.item.title+'</div><div class="c-price">¥'+ci.item.price+'</div></div>'+
-        '<div class="qty-ctrl">'+
-          '<button onclick="changeQty('+idx+',-1)">−</button>'+
-          '<span>'+ci.qty+'</span>'+
-          '<button onclick="changeQty('+idx+',1)">+</button>'+
-        '</div>'+
-      '</div>';
+  var fetchCartData;
+  if (useApi) {
+    if (!window._apiCart) window._apiCart = [];
+    fetchCartData = new Promise(function(resolve){
+      resolve(window._apiCart.map(function(c){ return { item:{id:c.id,title:c.title,price:c.price}, qty:c.qty }; }));
     });
-    html += '</div>'+
-      '<div class="cart-footer">'+
-        '<div class="total">合计 <strong>¥'+total.toFixed(2)+'</strong></div>'+
-        '<button class="btn-primary" style="padding:10px 28px;border:none;border-radius:10px;font-size:15px;cursor:pointer;" onclick="checkout()">去结算</button>'+
-      '</div>';
+  } else {
+    fetchCartData = new Promise(function(resolve){
+      var ci = [];
+      DATA.cart.forEach(function(c){
+        var item = DATA.items.find(function(i){ return String(i.id) === String(c.itemId); });
+        if (item && !item.sold) ci.push({ item:item, qty:c.qty });
+      });
+      resolve(ci);
+    });
   }
-  document.getElementById('mainContent').innerHTML = html;
-  updateCartBadge();
+  fetchCartData.then(function(cartItems){
+    var total = cartItems.reduce(function(s,c){ return s + c.item.price * c.qty; }, 0);
+    var html = '<div style="padding:14px;"><div style="font-weight:600;font-size:16px;margin-bottom:10px;text-align:center;">🛒 我的购物车</div>';
+    if (cartItems.length === 0) {
+      html += '<div class="empty"><div class="empty-icon">🛒</div><p>购物车是空的，去逛逛吧~</p></div>';
+    } else {
+      cartItems.forEach(function(ci, idx){
+        html += '<div class="cart-item">'+
+          '<div class="c-img">'+imgHTML(ci.item)+'</div>'+
+          '<div class="c-info"><div class="c-title">'+ci.item.title+'</div><div class="c-price">¥'+ci.item.price+'</div></div>'+
+          '<div class="qty-ctrl">'+
+            '<button onclick="changeQty('+idx+',-1)">−</button>'+
+            '<span>'+ci.qty+'</span>'+
+            '<button onclick="changeQty('+idx+',1)">+</button>'+
+          '</div>'+
+        '</div>';
+      });
+      html += '</div>'+
+        '<div class="cart-footer">'+
+          '<div class="total">合计 <strong>¥'+total.toFixed(2)+'</strong></div>'+
+          '<button class="btn-primary" style="padding:10px 28px;border:none;border-radius:10px;font-size:15px;cursor:pointer;" onclick="checkout()">去结算</button>'+
+        '</div>';
+    }
+    document.getElementById('mainContent').innerHTML = html;
+    updateCartBadge();
+  });
 }
 
 function changeQty(idx, delta){
-  var cartItems = [];
-  DATA.cart.forEach(function(c){
-    var item = DATA.items.find(function(i){ return i.id === c.itemId; });
-    if (item && !item.sold) cartItems.push(c);
-  });
-  if (idx >= cartItems.length) return;
-  cartItems[idx].qty += delta;
-  if (cartItems[idx].qty <= 0) {
-    // remove
-    DATA.cart = DATA.cart.filter(function(c){ return c.itemId !== cartItems[idx].itemId; });
+  if (useApi) {
+    if (idx >= window._apiCart.length) return;
+    window._apiCart[idx].qty += delta;
+    if (window._apiCart[idx].qty <= 0) window._apiCart.splice(idx, 1);
+  } else {
+    var ci = [];
+    DATA.cart.forEach(function(c){
+      var item = DATA.items.find(function(i){ return String(i.id) === String(c.itemId); });
+      if (item && !item.sold) ci.push(c);
+    });
+    if (idx >= ci.length) return;
+    ci[idx].qty += delta;
+    if (ci[idx].qty <= 0) {
+      DATA.cart = DATA.cart.filter(function(c){ return c.itemId !== ci[idx].itemId; });
+    }
+    saveLocal(DATA);
   }
-  saveData(DATA);
   renderCart();
 }
 
 function checkout(){
-  var cartItems = [];
-  DATA.cart.forEach(function(c){
-    var item = DATA.items.find(function(i){ return i.id === c.itemId; });
-    if (item && !item.sold) cartItems.push({ item:item, qty:c.qty });
+  var getCartItems;
+  if (useApi) {
+    getCartItems = new Promise(function(resolve){
+      resolve(window._apiCart.map(function(c){ return { title:c.title, price:c.price, qty:c.qty }; }));
+    });
+  } else {
+    getCartItems = new Promise(function(resolve){
+      var result = [];
+      DATA.cart.forEach(function(c){
+        var item = DATA.items.find(function(i){ return String(i.id) === String(c.itemId); });
+        if (item && !item.sold) result.push({ title:item.title, price:item.price, qty:c.qty });
+      });
+      resolve(result);
+    });
+  }
+  getCartItems.then(function(cartItems){
+    if (cartItems.length === 0) { toast('购物车为空'); return; }
+    var total = cartItems.reduce(function(s,c){ return s + c.price * c.qty; }, 0);
+    if (useApi) {
+      fetch(API_BASE + '/orders', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          buyerId: currentUser.id, buyerName: currentUser.name,
+          itemList: JSON.stringify(cartItems), total: total
+        })
+      }).then(function(r){ return r.json(); }).then(function(){
+        window._apiCart = [];
+        updateCartBadge();
+        toast('下单成功！请等待卖家联系 🤝');
+        switchTab('orders');
+      }).catch(function(){ toast('下单失败'); });
+    } else {
+      var now = new Date();
+      var ts = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+      DATA.orders.unshift({
+        id:'o'+Date.now(), items:cartItems, total:total, time:ts,
+        status:'pending', buyer:currentUser.name
+      });
+      DATA.cart = [];
+      saveLocal(DATA);
+      updateCartBadge();
+      toast('下单成功！请等待卖家联系 🤝');
+      switchTab('orders');
+    }
   });
-  if (cartItems.length === 0) { toast('购物车为空'); return; }
-  var total = cartItems.reduce(function(s,c){ return s + c.item.price * c.qty; }, 0);
-  var now = new Date();
-  var timeStr = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  var order = {
-    id: 'o'+Date.now(),
-    items: cartItems.map(function(ci){ return { title:ci.item.title, price:ci.item.price, qty:ci.qty }; }),
-    total: total,
-    time: timeStr,
-    status: 'pending', // pending, paid, shipped, done
-    buyer: DATA.currentUser.name
-  };
-  DATA.orders.unshift(order);
-  // Clear cart
-  DATA.cart = [];
-  saveData(DATA);
-  updateCartBadge();
-  toast('下单成功！请等待卖家联系 🤝');
-  switchTab('orders');
 }
 
 // ==================== ORDERS ====================
 function renderOrders(){
-  var orders = DATA.orders.filter(function(o){ return o.buyer === DATA.currentUser.name; });
-  var html = '<div style="padding:14px;"><div style="font-weight:600;font-size:16px;margin-bottom:10px;text-align:center;">📋 我的订单</div>';
-  if (orders.length === 0) {
-    html += '<div class="empty"><div class="empty-icon">📋</div><p>还没有订单</p></div>';
+  var fetchOrders;
+  if (useApi) {
+    fetchOrders = fetch(API_BASE + '/orders?buyerId=' + currentUser.id).then(function(r){ return r.json(); });
   } else {
-    orders.forEach(function(o){
-      var statusClass = { pending:'status-pending', paid:'status-paid', shipped:'status-shipped', done:'status-done' };
-      var statusText = { pending:'待付款', paid:'已付款', shipped:'已发货', done:'已完成' };
-      var itemsText = o.items.map(function(i){ return i.title+' x'+i.qty; }).join('、');
-      html += '<div class="order-card">'+
-        '<div class="o-header"><span>订单号：'+o.id+'</span><span class="o-status '+statusClass[o.status]+'">'+statusText[o.status]+'</span></div>'+
-        '<div class="o-items">'+itemsText+'</div>'+
-        '<div class="o-total">合计：¥'+o.total.toFixed(2)+'</div>'+
-        '<div style="font-size:11px;color:#aaa;margin-top:4px;">'+o.time+'</div>';
-      if (o.status === 'pending') {
-        html += '<button style="margin-top:8px;border:none;background:var(--g500);color:#fff;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;" onclick="payOrder(\''+o.id+'\')">去付款</button>';
-      }
-      if (o.status === 'shipped') {
-        html += '<button style="margin-top:8px;border:none;background:var(--g500);color:#fff;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;margin-left:6px;" onclick="confirmOrder(\''+o.id+'\')">确认收货</button>';
-      }
-      html += '</div>';
+    fetchOrders = new Promise(function(resolve){
+      resolve(DATA.orders.filter(function(o){ return o.buyer === currentUser.name; }));
     });
   }
-  html += '</div>';
-  document.getElementById('mainContent').innerHTML = html;
+  fetchOrders.then(function(orders){
+    var html = '<div style="padding:14px;"><div style="font-weight:600;font-size:16px;margin-bottom:10px;text-align:center;">📋 我的订单</div>';
+    if (orders.length === 0) {
+      html += '<div class="empty"><div class="empty-icon">📋</div><p>还没有订单</p></div>';
+    } else {
+      orders.forEach(function(o){
+        var sc = {'pending':'status-pending','paid':'status-paid','shipped':'status-shipped','done':'status-done'};
+        var st = {'pending':'待付款','paid':'已付款','shipped':'已发货','done':'已完成'};
+        var itemsText;
+        if (typeof o.itemList === 'string') {
+          try { itemsText = JSON.parse(o.itemList).map(function(i){ return i.title+' x'+i.qty; }).join('、'); }
+          catch(e){ itemsText = o.itemList; }
+        } else if (o.items) {
+          itemsText = o.items.map(function(i){ return i.title+' x'+i.qty; }).join('、');
+        } else { itemsText = '-'; }
+        var oid = o.id || o._id || o.orderNo;
+        html += '<div class="order-card">'+
+          '<div class="o-header"><span>订单号：'+oid+'</span><span class="o-status '+sc[o.status]+'">'+st[o.status]+'</span></div>'+
+          '<div class="o-items">'+itemsText+'</div>'+
+          '<div class="o-total">合计：¥'+(o.total||0).toFixed(2)+'</div>'+
+          '<div style="font-size:11px;color:#aaa;margin-top:4px;">'+(o.createdAt||o.time||'')+'</div>';
+        if (o.status === 'pending') {
+          html += '<button style="margin-top:8px;border:none;background:var(--g500);color:#fff;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;" onclick="payOrder(\''+oid+'\')">去付款</button>';
+        }
+        if (o.status === 'shipped') {
+          html += '<button style="margin-top:8px;border:none;background:var(--g500);color:#fff;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;margin-left:6px;" onclick="confirmOrder(\''+oid+'\')">确认收货</button>';
+        }
+        html += '</div>';
+      });
+    }
+    html += '</div>';
+    document.getElementById('mainContent').innerHTML = html;
+  });
 }
 
 function payOrder(orderId){
-  var order = DATA.orders.find(function(o){ return o.id === orderId; });
-  if (order) { order.status = 'paid'; saveData(DATA); toast('付款成功！等待卖家发货 ✅'); renderOrders(); }
-}
-function confirmOrder(orderId){
-  var order = DATA.orders.find(function(o){ return o.id === orderId; });
-  if (order) { order.status = 'done'; saveData(DATA); toast('已确认收货，交易完成 🎉'); renderOrders(); }
+  if (useApi) {
+    fetch(API_BASE + '/orders/' + orderId + '/pay', { method:'PUT' })
+      .then(function(r){ return r.json(); })
+      .then(function(){ toast('付款成功！等待卖家发货 ✅'); renderOrders(); })
+      .catch(function(e){ toast('付款失败'); });
+  } else {
+    var o = DATA.orders.find(function(o){ return o.id === orderId; });
+    if (o) { o.status = 'paid'; saveLocal(DATA); toast('付款成功！等待卖家发货 ✅'); renderOrders(); }
+  }
 }
 
-// Simulate seller actions — for demo, auto progress after payment
-function simulateSeller(){
-  DATA.orders.forEach(function(o){
-    if (o.status === 'paid') {
-      // Auto ship after "a while"
-      var createdTime = new Date(o.time).getTime();
-      if (Date.now() - createdTime > 10000) { // 10 seconds for demo
-        o.status = 'shipped';
-      }
-    }
-  });
+function confirmOrder(orderId){
+  if (useApi) {
+    fetch(API_BASE + '/orders/' + orderId + '/confirm', { method:'PUT' })
+      .then(function(r){ return r.json(); })
+      .then(function(){ toast('已确认收货，交易完成 🎉'); renderOrders(); })
+      .catch(function(e){ toast('操作失败'); });
+  } else {
+    var o = DATA.orders.find(function(o){ return o.id === orderId; });
+    if (o) { o.status = 'done'; saveLocal(DATA); toast('已确认收货，交易完成 🎉'); renderOrders(); }
+  }
 }
-setInterval(function(){
-  simulateSeller();
-  saveData(DATA);
-}, 5000);
 
 // ==================== ME ====================
 function renderMe(){
   var html = '<div style="padding:14px;">'+
     '<div style="text-align:center;padding:24px 0;">'+
       '<div style="width:72px;height:72px;border-radius:50%;background:var(--g100);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:36px;">👨‍💻</div>'+
-      '<div style="font-weight:700;font-size:18px;">'+DATA.currentUser.name+'</div>'+
-      '<div style="font-size:13px;color:var(--gray);">'+DATA.currentUser.role+' · '+DATA.currentUser.phone+'</div>'+
+      '<div style="font-weight:700;font-size:18px;">'+currentUser.name+'</div>'+
+      '<div style="font-size:13px;color:var(--gray);">'+currentUser.role+' · '+currentUser.phone+'</div>'+
     '</div>';
 
-  // My listed items
-  var myItems = DATA.items.filter(function(i){ return i.sellerId === DATA.currentUser.id; });
-  html += '<div style="font-weight:600;margin-bottom:8px;">📝 我发布的商品 ('+myItems.length+')</div>';
-  myItems.forEach(function(item){
-    html += '<div class="cart-item">'+
-      '<div class="c-img">'+imgHTML(item)+'</div>'+
-      '<div class="c-info"><div class="c-title">'+item.title+'</div><div class="c-price">¥'+item.price+'</div><div style="font-size:11px;color:'+(item.sold?'var(--red)':'var(--g600)')+';">'+(item.sold?'已售出':'在售')+'</div></div>'+
-    '</div>';
+  var fetchMyItems;
+  if (useApi) {
+    fetchMyItems = fetch(API_BASE + '/items/seller/' + currentUser.id).then(function(r){ return r.json(); });
+  } else {
+    fetchMyItems = new Promise(function(resolve){
+      resolve(DATA.items.filter(function(i){ return String(i.sellerId) === String(currentUser.id); }));
+    });
+  }
+  fetchMyItems.then(function(myItems){
+    html += '<div style="font-weight:600;margin-bottom:8px;">📝 我发布的商品 ('+myItems.length+')</div>';
+    myItems.forEach(function(item){
+      html += '<div class="cart-item">'+
+        '<div class="c-img">'+imgHTML(item)+'</div>'+
+        '<div class="c-info"><div class="c-title">'+item.title+'</div><div class="c-price">¥'+item.price+'</div><div style="font-size:11px;color:'+(item.sold?'var(--red)':'var(--g600)')+';">'+(item.sold?'已售出':'在售')+'</div></div>'+
+      '</div>';
+    });
+    if (myItems.length === 0) html += '<div class="empty"><p style="font-size:13px;">暂无发布的商品</p></div>';
+
+    if (!useApi) {
+      html += '<div style="margin-top:20px;font-weight:600;margin-bottom:8px;">🔄 切换演示用户（离线）</div>';
+      DATA.users.forEach(function(u){
+        html += '<button style="display:block;width:100%;border:1px solid #e5e7eb;background:#fff;padding:10px;border-radius:10px;margin-bottom:6px;cursor:pointer;text-align:left;font-size:14px;'+(u.id===currentUser.id?'border-color:var(--g500);background:var(--g50);':'')+'" onclick="switchLocalUser(\''+u.id+'\')">'+u.name+' · '+u.role+'</button>';
+      });
+    }
+
+    html += '<div style="margin-top:20px;"><button class="btn-danger" style="border:none;width:100%;padding:10px;border-radius:10px;font-size:14px;cursor:pointer;" onclick="doLogout()">🚪 退出登录</button></div>';
+    html += '</div>';
+    document.getElementById('mainContent').innerHTML = html;
   });
-  if (myItems.length === 0) html += '<div class="empty"><p style="font-size:13px;">暂无发布的商品</p></div>';
-
-  // Switch user
-  html += '<div style="margin-top:20px;font-weight:600;margin-bottom:8px;">🔄 切换演示用户</div>';
-  DATA.users.forEach(function(u){
-    html += '<button style="display:block;width:100%;border:1px solid #e5e7eb;background:#fff;padding:10px;border-radius:10px;margin-bottom:6px;cursor:pointer;text-align:left;font-size:14px;'+(u.id===DATA.currentUser.id?'border-color:var(--g500);background:var(--g50);':'')+'" onclick="switchUser(\''+u.id+'\')">'+u.name+' · '+u.role+'</button>';
-  });
-
-  html += '<div style="margin-top:20px;">'+
-    '<button class="btn-danger" style="border:none;width:100%;padding:10px;border-radius:10px;font-size:14px;cursor:pointer;" onclick="resetData()">🔄 重置所有数据</button>'+
-  '</div>';
-
-  html += '</div>';
-  document.getElementById('mainContent').innerHTML = html;
 }
 
-function switchUser(userId){
-  var user = DATA.users.find(function(u){ return u.id === userId; });
-  if (user) { DATA.currentUser = user; saveData(DATA); renderMe(); toast('已切换为：'+user.name); }
+function switchLocalUser(userId){
+  var user = DATA.users.find(function(u){ return String(u.id) === String(userId); });
+  if (user) { currentUser = user; toast('已切换为：'+user.name); renderMe(); }
 }
 
-function resetData(){
-  if (!confirm('确定要重置所有数据吗？这将清空所有商品、订单和购物车。')) return;
-  localStorage.removeItem(STORAGE_KEY);
-  DATA = loadData();
-  updateCartBadge();
-  switchTab('home');
-  toast('数据已重置');
-}
-
-// ==================== INIT ====================
+// ==================== STARTUP ====================
+init();
 updateCartBadge();
-renderItems();
 </script>
 </body>
 </html>
